@@ -39,3 +39,51 @@
 
 </div>
 
+<hr>
+<h1>See the company list below:</h1>
+<div class="mt-5">
+    <button type="button" (click)="getCompanyList()" class="btn btn-primary"> View Companies</button> <br>
+    <table class="table table-bordered mt-3">
+        <thead class="thead">
+            <tr>
+                <th>Company ID</th>
+                <th>Company Name</th>
+                <th>Company CEO</th>
+                <th>Company turnover</th>
+                <th>Company Website</th>
+                <th>Stock Price</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+        </thead>
+        <tbody class="tbody">
+            <tr *ngFor="let company of companyArray">
+
+                <td> {{company.companyID}} </td>
+                <td> {{company.companyName}} </td>
+                <td> {{company.companyCEO}} </td>
+                <td> {{company.turnover}} </td>
+                <td> {{company.website}} </td>
+                <td> {{company.stockPrice}} </td>
+                <td> <button type="button" class="btn btn-primary"> Update </button></td>
+                <td> <button type="button" class="btn btn-danger" (click)="deleteCompany(company.companyID)"> Delete </button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<br><br>
+<hr>
+<h1>Searching for a company: </h1>
+<div id="searchDiv" class="mt-1" style="padding: 20px;">
+    <input type="number" [(ngModel)]="companym.companyID"> <br>
+    <button type="button" class="btn btn-info mt-5" (click)="getCompanyByID(companym.companyID)"> 
+        Search 
+    </button>
+
+    {{data}}
+
+</div>
+
