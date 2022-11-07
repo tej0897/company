@@ -1,0 +1,41 @@
+<h1 style="padding: 20px;"> Company Area </h1>
+<div class="card mt-5" style="padding: 20px;">
+    <form #companyData="ngForm" (ngSubmit)="addCompany(companyData)">
+
+      <div class="form-group">
+        <label for="companyID"> Company ID </label>
+        <input name="companyID" class="form-control" type="number" placeholder="enter company ID"
+        [(ngModel)]="companyObj.companyID" required>
+      </div>
+
+      <div class="form-group">
+        <label for="companyName"> Company Name</label>
+        <input name="companyName" class="form-control" type="text" placeholder="enter company name" [(ngModel)]="companyObj.companyName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="companyCEO"> Company CEO</label>
+        <input name="companyCEO" class="form-control" type="text" placeholder="enter company ceo"
+        [(ngModel)]="companyObj.companyCEO" required>
+      </div>
+
+      <div class="form-group">
+        <label for="turnover"> Company turnover</label>
+        <input name="turnover" class="form-control" type="number" placeholder="enter company turnover" [(ngModel)]="companyObj.turnover" required>
+      </div>
+
+      <div class="form-group">
+        <label for="website"> Company website</label>
+        <input name="website" class="form-control" type="text" placeholder="enter company website"
+        [(ngModel)]="companyObj.website" required>
+      </div>
+      
+
+      <div class="form-group">
+        <input type="submit" value="Add Company" class="btn btn-secondary w-100">
+      </div>
+
+    </form>
+
+</div>
+
