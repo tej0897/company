@@ -66,12 +66,66 @@
                 <td> {{company.turnover}} </td>
                 <td> {{company.website}} </td>
                 <td> {{company.stockPrice}} </td>
-                <td> <button type="button" class="btn btn-primary"> Update </button></td>
+                <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="update(company)"> Update </button></td>
                 <td> <button type="button" class="btn btn-danger" (click)="deleteCompany(company.companyID)"> Delete </button></td>
             </tr>
         </tbody>
     </table>
+    
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Company</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form #companyData="ngForm" (ngSubmit)="addCompany(companyData)">
+
+                <div class="form-group">
+                  <label for="companyID"> Company ID </label>
+                  <input name="companyID" class="form-control" type="number" placeholder="enter company ID"
+                  [(ngModel)]="companyToUpdate.companyID" required>
+                </div>
+          
+                <div class="form-group">
+                  <label for="companyName"> Company Name</label>
+                  <input name="companyName" class="form-control" type="text" placeholder="enter company name" [(ngModel)]="companyToUpdate.companyName" required>
+                </div>
+          
+                <div class="form-group">
+                  <label for="companyCEO"> Company CEO</label>
+                  <input name="companyCEO" class="form-control" type="text" placeholder="enter company ceo"
+                  [(ngModel)]="companyToUpdate.companyCEO" required>
+                </div>
+          
+                <div class="form-group">
+                  <label for="turnover"> Company turnover</label>
+                  <input name="turnover" class="form-control" type="number" placeholder="enter company turnover" [(ngModel)]="companyToUpdate.turnover" required>
+                </div>
+          
+                <div class="form-group">
+                  <label for="website"> Company website</label>
+                  <input name="website" class="form-control" type="text" placeholder="enter company website"
+                  [(ngModel)]="companyToUpdate.website" required>
+                </div>
+                
+          
+                <div class="form-group">
+                  <input type="submit" value="Update Company" class="btn btn-secondary w-100">
+                </div>
+          
+              </form>
+            </div>
+      </div>
+    </div>
+  </div>
+
 
 
 <br><br>
@@ -86,4 +140,6 @@
     {{data}}
 
 </div>
+
+
 

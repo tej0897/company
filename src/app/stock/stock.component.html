@@ -1,1 +1,33 @@
+<h1 style="padding: 20px;">Stock Area</h1>
 
+<div class="card mt-5" style="padding: 20px;">
+    <form #stockData="ngForm" (ngSubmit)="addStock(stockObj.companyIDFK)">
+
+      <div class="form-group">
+        <label for="stockPrice"> Stock Price </label>
+        <!-- <input type="text" (ngModel)="stockObj.stockPrice" name="stockPrice" class="form-control" placeholder="enter stock price"> -->
+        <input name="stockPrice" class="form-control" type="number" placeholder="enter Stock Price"
+        [(ngModel)]="stockObj.stockPrice" required>
+      </div>
+
+      <div class="form-group">
+        <label for="timeStamp"> Time Stamp </label>
+        <!-- <input type="text" (ngModel)="stockObj.timeStamp" name="timeStamp" class="form-control" placeholder="enter timeStamp"> -->
+        <input name="timeStamp" class="form-control" type="number" placeholder="enter timeStamp"
+        [(ngModel)]="stockObj.timeStamp" required>
+      </div>
+
+      <div class="form-group">
+        <label for="turnover"> company ID </label>
+        <!-- <input type="number" (ngModel)="stockObj.companyIDFK" name="companyIDFK" class="form-control" placeholder="enter companyIDFK"> -->
+        <input name="companyIDFK" class="form-control" type="number" placeholder="enter company ID"
+        [(ngModel)]="stockObj.companyIDFK" required>
+      </div>
+    
+      <div class="form-group" style="padding: 20px;">
+        <input type="submit" value="Add Stock" class="btn btn-secondary w-100">
+      </div>
+
+    </form>
+
+</div>

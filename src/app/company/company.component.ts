@@ -76,4 +76,18 @@ export class CompanyComponent implements OnInit {
         console.log(err);
       })
   }
+
+  companyToUpdate = {
+    companyID:"",
+    companyName:"",
+    companyCEO:"",
+    turnover:"",
+    website:""
+  }
+
+  update(company: Company){
+    this.companyToUpdate = company;
+  }
+
+  
 }

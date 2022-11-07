@@ -25,7 +25,11 @@ export class CompanyService {
   }
 
   public getCompanyByID(cid:number):Observable<Company>{
-    return this.http.get<Company>(this.API + /getCompanyByID/ +cid)
+    return this.http.get<Company>(this.API + /getCompanyByID/ +cid);
+  }
+
+  public updateCompany(company: any) {
+    return this.http.put(this.API + '/updateCompany', company);
   }
 
 }
