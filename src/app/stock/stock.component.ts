@@ -35,15 +35,44 @@ export class StockComponent implements OnInit {
     );
   }
 
-  getStockList(cid:number){
-    this.stockService.getAllStocks(cid).subscribe(data=>{
-    this.stockList = Object.values(this.data);
-    console.log(this.stockObj.stockPrice);
-  },
-  (err) => {
-    console.log(err);
+  // getStockList(cid:number){
+  //   this.stockService.getAllStocks(cid).subscribe(data=>{
+  //   this.stockList = Object.values(this.data);
+  //   console.log(this.stockObj.stockPrice);
+  // },
+  // (err) => {
+  //   console.log(err);
 
-  })
+  // })
+  // }
+
+  // getCompanyList(){
+  //   this.companyService.getAllCompany().subscribe(
+  //     (data) => {
+  //       this.companyArray = Object.values(data);
+  //       console.log(this.companyArray);
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     });
+  // }
+
+
+  stockArray: Array<Stock> = [];
+  stockm : Stock = new Stock();
+  stockData: Array<Stock> = [];
+  response: any;
+
+  getStocks(bid:number){
+    this.stockService.getAllStocks(this.stockm.companyIDFK).subscribe(data=>
+      {
+        this.stockArray = Object.values(data);
+        console.log(this.stockArray);
+        alert("Search data Found!")
+      },
+      (err) => {
+        console.log(err);
+      })
   }
 
 }
